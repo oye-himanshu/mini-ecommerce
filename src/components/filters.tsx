@@ -45,7 +45,7 @@ const Filters: React.FC = () => {
                 <p>Sort by:</p>
                 <select className="w-full border border-gray-200 px-2 py-1 rounded-md max-w-48" value={selectedSortBy} onChange={(e) => handleSortByFilter(e.target.value)}>
                     <option value='' className="text-sm">Sort by</option>
-                    <option value='low-to-high' className="text-sm">Price -  to High</option>
+                    <option value='low-to-high' className="text-sm">Price - Low to High</option>
                     <option value='high-to-low' className="text-sm">Price - High to Low</option>
                     <option value='highest-rated' className="text-sm">Highest Rated</option>
                     <option value='a-to-z' className="text-sm">Name - A to Z</option>

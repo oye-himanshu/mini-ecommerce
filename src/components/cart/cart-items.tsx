@@ -9,7 +9,7 @@ const CartItems: React.FC = () => {
     return (
        <div className="lg:col-span-2 space-y-4 px-4 py-2 rounded-lg border border-gray-300">
                     <h2 className="text-lg font-semibold">Cart Items</h2>
-                    {carts.map((item) => (
+                    {carts.length >0 ? carts.map((item) => (
                         <div
                             key={item.id}
                             className="flex flex-col sm:flex-row sm:items-start sm:justify-between p-4 border border-gray-200 rounded-lg gap-4"
@@ -61,7 +61,7 @@ const CartItems: React.FC = () => {
                                 </button>
                             </div>
                         </div>
-                    ))}
+                    )):<p>No item found!</p>}
                 </div>
     )
 }

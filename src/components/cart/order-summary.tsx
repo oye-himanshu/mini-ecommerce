@@ -31,8 +31,8 @@ const OrderSummary: React.FC = () => {
                         </div>
                     </div>
                     <div className="flex flex-col gap-2 mt-4">
-                        <PrimaryButton title="Proceed to Checkout" className="py-3" />
-                        <Link href='/products' className="w-full mt-2 border py-2 text-sm rounded-lg hover:bg-gray-100 transition text-center">
+                        <PrimaryButton title="Proceed to Checkout" className="py-3 font-semibold" />
+                        <Link href='/products' className="w-full mt-2 border py-2 text-xs font-semibold rounded-lg hover:bg-gray-100 transition text-center">
                             Continue Shopping
                         </Link>
                     </div>
