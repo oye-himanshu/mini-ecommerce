@@ -1,6 +1,7 @@
 'use client'
 import { useAppDispatch, useAppSelector } from "@/redux/hooks"
 import { decreaseQty, increaseQty, removeCart } from "@/redux/slice/cart"
+import Image from "next/image"
 import Link from "next/link"
 
 const CartItems: React.FC = () => {
@@ -15,7 +16,7 @@ const CartItems: React.FC = () => {
                             className="flex flex-col sm:flex-row sm:items-start sm:justify-between p-4 border border-gray-200 rounded-lg gap-4"
                         >
                             <div className="flex items-center gap-4 flex-1">
-                               <img src={item.image} className="w-auto h-14 object-contain"/>
+                               <Image alt={item.title} width={20} height={50} src={item.image} className="w-auto h-14 object-contain"/>
                                 <div>
                                     <Link href={`/products/${item.id}`} className="text-gray-800 hover:text-blue-600 transition font-semibold line-clamp-1">
                                         {item.title}

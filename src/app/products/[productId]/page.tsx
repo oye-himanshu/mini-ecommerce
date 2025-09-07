@@ -20,7 +20,7 @@ const ProductDetailPage: React.FC<{
             <Suspense fallback={<ProductSkeleton />}>
             <div className="flex sm:flex-row flex-col sm:gap-10 gap-5 sm:py-10 py-5">
                 <div className="w-full">
-                    <img src={productDetails.image} alt={productDetails.title} width={500} height={300} className="max-w-80 w-full object-contain m-auto" />
+                    <Image src={productDetails.image} alt={productDetails.title} width={500} height={300} className="max-w-80 w-full object-contain m-auto" />
                 </div>
                 <div className="flex flex-col sm:gap-2 gap-1 w-full">
                     <span className="bg-gray-100 text-xs me-2 px-2.5 py-0.5 rounded-sm font-semibold w-fit text-center mb-5">{productDetails.category}</span>
