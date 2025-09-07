@@ -1,5 +1,6 @@
 import { ProductType } from "@/types/product"
 import Link from "next/link"
+import RatingComponent from "./rating"
 
 const ProductCard: React.FC<{ product: ProductType }> = ({ product }) => {
     return (
@@ -11,8 +12,11 @@ const ProductCard: React.FC<{ product: ProductType }> = ({ product }) => {
                 <p className="text-xs line-clamp-2">
                     {product?.description}
                 </p>
-                <p className="text-xs">{product?.rating.rate} (290)</p>
-                <p className="text-sm">$ {product?.price}</p>
+                <div className="flex items-center gap-2">
+                    <RatingComponent count={product.rating.rate}/>
+                <p className="text-xs">({product?.rating.count})</p>
+                </div>
+                <p className="text-sm font-semibold">${product?.price}</p>
             </div>
         </div>
     )

@@ -11,9 +11,9 @@ const ProductListingPage: React.FC<ProductListingPageProps> = async ({ searchPar
     const productList: ProductType[] = data;
 
     return (
-        <div className="py-5 flex flex-col gap-5">
+        <div className="sm:py-5 flex flex-col gap-5">
             <Filters />
-            <div className="grid xl:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-10 items-stretch">
+            <div className="grid xl:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-10 items-stretch">
                 {
                     productList.map((product) => <ProductCard product={product} key={product.id} />)
                 }

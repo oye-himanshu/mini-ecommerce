@@ -31,7 +31,7 @@ const Filters: React.FC = () => {
     }
 
     return (
-        <div className="flex items-center justify-between w-full">
+        <div className="flex items-center sm:flex-row flex-col justify-between w-full gap-2">
             <div className="flex items-center gap-2 text-sm w-full">
                 <p>Filter:</p>
                 <select className="w-full border border-gray-200 px-2 py-1 rounded-md max-w-48" value={selectedCategory} onChange={(e) => handleCategoryFilter(e.target.value)}>
@@ -41,10 +41,10 @@ const Filters: React.FC = () => {
                     }
                 </select>
             </div>
-            <div className="flex items-center gap-2 text-sm w-full justify-end">
+            <div className="flex items-center gap-2 text-sm w-full sm:justify-end">
                 <p>Sort by:</p>
                 <select className="w-full border border-gray-200 px-2 py-1 rounded-md max-w-48" value={selectedSortBy} onChange={(e) => handleSortByFilter(e.target.value)}>
-                    <option value='' className="text-sm">Filter by Category</option>
+                    <option value='' className="text-sm">Sort by</option>
                     <option value='low-to-high' className="text-sm">Price -  to High</option>
                     <option value='high-to-low' className="text-sm">Price - High to Low</option>
                     <option value='highest-rated' className="text-sm">Highest Rated</option>
