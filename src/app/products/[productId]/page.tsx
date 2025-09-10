@@ -1,11 +1,8 @@
 import Divider from "@/components/divider"
 import Image from "next/image"
-import { axiosInstance } from "@/utils/axios-instance";
 import { ProductType } from "@/types/product";
 import ActionButtons from "@/components/product-details/action-buttons";
 import RatingComponent from "@/components/rating";
-import { Suspense } from "react";
-import ProductSkeleton from "@/skeleton/product-details-skeleton";
 
 const ProductDetailPage: React.FC<{
     params: Promise<{ productId: string }>
@@ -13,11 +10,9 @@ const ProductDetailPage: React.FC<{
     params,
 }) => {
         const { productId } = await params
-        const { data } = await axiosInstance.get(`/api/products/${productId}`);
-        const productDetails: ProductType = data
-
+        const data = await fetch(`${process.env.NEXT_BASE_URL}/api/products/${productId}`).then(r => r.json())
+        const productDetails: ProductType = data;
         return (
-            <Suspense fallback={<ProductSkeleton />}>
             <div className="flex sm:flex-row flex-col sm:gap-10 gap-5 sm:py-10 py-5">
                 <div className="w-full">
                     <Image src={productDetails.image} alt={productDetails.title} width={500} height={300} className="max-w-80 w-full object-contain m-auto" />
@@ -39,7 +34,6 @@ const ProductDetailPage: React.FC<{
                     <ActionButtons productDetails={productDetails} />
                 </div>
             </div>
-            </Suspense>
         )
     }
 

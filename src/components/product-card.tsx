@@ -6,7 +6,7 @@ import Image from "next/image"
 const ProductCard: React.FC<{ product: ProductType }> = ({ product }) => {
     return (
         <div className="shadow-md flex flex-col gap-2 bg-white">
-            <Image src={product?.image} alt={product?.title} height={150} width={200} className="aspect-video object-contain m-auto" />
+            <Image src={product?.image} alt={product?.title} height={150} width={200} className="aspect-video object-contain m-auto h-auto w-auto" />
             <div className="flex flex-col gap-2 px-4 py-2">
                 <Link href={`/products/${product?.id}`} className="font-semibold hover:text-blue-600 duration-200 cursor-pointer line-clamp-1">{product?.title}</Link>
                 <p className="text-xs font-semibold">{product?.category}</p>
