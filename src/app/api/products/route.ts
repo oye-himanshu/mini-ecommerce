@@ -7,6 +7,8 @@ export async function GET(request: Request) {
     const search = searchParams.get("search")
     const sortBy = searchParams.get("sortBy")
     const category = searchParams.get("category")
+    const page = searchParams.get("page") || 1
+    if (page) returnedData = returnedData?.slice(0, Number(page) * 4)
     if (category) returnedData = returnedData.filter((item: ProductType) => item.category === category)
     if (search) returnedData = returnedData.filter((item: ProductType) => item.title.toLowerCase().includes(search.toLowerCase()))
     if (sortBy) handleSortData(returnedData, sortBy)
@@ -24,7 +26,7 @@ function handleSortData(productList: ProductType[], sortBy: string) {
             return data
         }
         case 'highest-rated': {
-            const data = productList.sort((a, b) => b.rating.rate - a.rating.rate)
+            const data = productList.sort((a, b) => ((b.rating.rate - a.rating.rate)))
             return data
         }
         case 'a-to-z': {

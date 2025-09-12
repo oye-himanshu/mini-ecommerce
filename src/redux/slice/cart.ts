@@ -50,9 +50,13 @@ export const CartSlice = createSlice({
                 toast.success('quantity decreased by 1')
             }
         },
+        removeAllQty: (state, action) => {
+            state.carts = action.payload
+            toast.success('All items removed successfully!')
+        },
     },
 });
 
-export const { addCart, removeCart, decreaseQty, increaseQty } = CartSlice.actions;
+export const { addCart, removeCart, decreaseQty, increaseQty, removeAllQty } = CartSlice.actions;
 
 export default CartSlice.reducer;

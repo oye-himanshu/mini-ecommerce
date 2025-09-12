@@ -1,6 +1,6 @@
 'use client'
 import { useAppDispatch, useAppSelector } from "@/redux/hooks"
-import { decreaseQty, increaseQty, removeCart } from "@/redux/slice/cart"
+import { decreaseQty, increaseQty, removeAllQty, removeCart } from "@/redux/slice/cart"
 import Image from "next/image"
 import Link from "next/link"
 
@@ -9,7 +9,10 @@ const CartItems: React.FC = () => {
      const carts = useAppSelector((state) => state.cart.carts)
     return (
        <div className="lg:col-span-2 space-y-4 px-4 py-2 rounded-lg border border-gray-300">
-                    <h2 className="text-lg font-semibold">Cart Items</h2>
+                    <div className="flex items-center gap-2 w-full justify-between">
+                        <h2 className="text-lg font-semibold">Cart Items</h2>
+                        <button className="cursor-pointer underline"  onClick={() => dispatch(removeAllQty([]))}>Remove All</button>
+                    </div>
                     {carts.length >0 ? carts.map((item) => (
                         <div
                             key={item.id}
